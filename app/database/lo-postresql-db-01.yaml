@@ -1,10 +1,9 @@
 apiVersion: databases.dataservices.vmware.com/v1alpha1
 kind: PostgresCluster
 metadata:
-  name: pg-dev-cluster
-  namespace: dev-team
+  name: lo-pg-cluster-01
 spec:
-  replicas: 1
+  replicas: 3
   version: "16"
   vmClass:
     name: medium
