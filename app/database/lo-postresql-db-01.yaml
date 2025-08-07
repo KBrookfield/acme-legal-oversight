@@ -1,0 +1,24 @@
+apiVersion: databases.dataservices.vmware.com/v1alpha1
+kind: PostgresCluster
+metadata:
+  name: lo-pg-cluster-01
+spec:
+  replicas: 3
+  version: "16"
+  vmClass:
+    name: medium
+  storageSpace: 20Gi
+  infrastructurePolicy:
+    name: infra-policy-01
+  storagePolicyName: vsan-default-storage-policy
+  backupConfig:
+    backupRetentionDays: 91
+    schedules:
+      - name: full-weekly
+        type: full
+        schedule: "0 0 * * 0"
+      - name: incremental-daily
+        type: incremental
+        schedule: "0 0 * * *"
+  backupLocation:
+    name: default-backup-storage
