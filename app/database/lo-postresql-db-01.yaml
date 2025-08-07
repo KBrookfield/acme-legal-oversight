@@ -1,24 +1,14 @@
-apiVersion: databases.dataservices.vmware.com/v1alpha1
-kind: PostgresCluster
+apiVersion: vmoperator.vmware.com/v1alpha3
+kind: VirtualMachine
 metadata:
-  name: lo-pg-cluster-01
+  name: lo-pg-db-01
+  namespace: lo-dev-d6n4g
+  labels:
+    vm-selector: lo-pg-db-01
+    topology.kubernetes.io/zone: zone1
 spec:
-  replicas: 3
-  version: "16"
-  vmClass:
-    name: medium
-  storageSpace: 20Gi
-  infrastructurePolicy:
-    name: infra-policy-01
-  storagePolicyName: vsan-default-storage-policy
-  backupConfig:
-    backupRetentionDays: 91
-    schedules:
-      - name: full-weekly
-        type: full
-        schedule: "0 0 * * 0"
-      - name: incremental-daily
-        type: incremental
-        schedule: "0 0 * * *"
-  backupLocation:
-    name: default-backup-storage
+  className: best-effort-xsmall
+  # Friendly image name: ubuntu-server-22.04-lts-jammy-jellyfish
+  imageName: vmi-4fe028aed74014d97
+  storageClass: vsan-default-storage-policy
+  powerState: PoweredOn

@@ -16,8 +16,6 @@ spec:
     spec:
       containers:
         - name: lo-web-frontend
-          image: harbor.acme.com/legal-oversight/lo-web-frontend:latest
+          image: nginx:latest
           ports:
             - containerPort: 443
-      imagePullSecrets:
-      - name: harbor-pull-creds
