@@ -1,0 +1,14 @@
+apiVersion: vmoperator.vmware.com/v1alpha3
+kind: VirtualMachine
+metadata:
+  name: lo-pg-db-02
+  namespace: lo-dev-d6n4g
+  labels:
+    vm-selector: lo-pg-db-02
+    topology.kubernetes.io/zone: zone1
+spec:
+  className: best-effort-xsmall
+  # Friendly image name: ubuntu-server-22.04-lts-jammy-jellyfish
+  imageName: vmi-4fe028aed74014d97
+  storageClass: vsan-default-storage-policy
+  powerState: PoweredOn
