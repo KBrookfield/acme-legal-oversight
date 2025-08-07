@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lo-web-frontend-deployment
+  labels:
+    app: lo-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lo-frontend
+  template:
+    metadata:
+      labels:
+        app: lo-frontend
+    spec:
+      containers:
+        - name: lo-web-frontend
+          image: harbor.acme.com/legal-oversight/lo-web-frontend:latest
+          ports:
+            - containerPort: 443
+      imagePullSecrets:
+      - name: harbor-pull-creds

@@ -1,0 +1,22 @@
+apiVersion: vmoperator.vmware.com/v1alpha3
+kind: VirtualMachineService
+metadata:
+  name: sharepoint-vm-lb
+  namespace: lo-dev-d6n4g
+spec:
+  selector:
+    sharepoint-vm-lb: vm-lb-selector
+  type: LoadBalancer
+  ports:
+    - name: rdp
+      protocol: TCP
+      port: 3389
+      targetPort: 3389
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
