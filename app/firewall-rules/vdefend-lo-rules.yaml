@@ -38,8 +38,3 @@ spec:
       action: drop
     - direction: out
       action: drop
-status:
-  conditions:
-    - type: "Ready"
-      status: True
-      reason: "SuccessfulRealized"
