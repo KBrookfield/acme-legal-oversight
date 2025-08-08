@@ -2,7 +2,6 @@ apiVersion: vmoperator.vmware.com/v1alpha3
 kind: VirtualMachine
 metadata:
   name: lo-pg-db-01
-  namespace: lo-dev-d6n4g
   labels:
     vm-selector: lo-pg-db-01
     topology.kubernetes.io/zone: zone1
