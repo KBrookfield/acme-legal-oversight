@@ -29,7 +29,7 @@ spec:
           labels:
             app: lo
     controlPlane:
-      replicas: 1
+      replicas: 2
       metadata:
         annotations:
           run.tanzu.vmware.com/resolve-os-image: os-name=photon, content-library=cl-2fb8b3064f1b4b0ad
@@ -37,7 +37,7 @@ spec:
       machineDeployments:
         - class: node-pool
           name: lo-dev-cluster-01-nodepool-8gv2
-          replicas: 1
+          replicas: 2
           metadata:
             annotations:
               run.tanzu.vmware.com/resolve-os-image: os-name=photon, content-library=cl-2fb8b3064f1b4b0ad
